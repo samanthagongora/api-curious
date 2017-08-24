@@ -7,5 +7,6 @@ RSpec.feature 'user logs in' do
     click_link 'Sign in with Github'
 
     expect(page).to have_link('Sign Out')
+    expect(current_path).to eq("/users/#{User.first.id}")
   end
 end

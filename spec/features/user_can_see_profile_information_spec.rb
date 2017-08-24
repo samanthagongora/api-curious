@@ -7,6 +7,7 @@ feature "An authenticated user" do
     visit '/'
     click_on 'Sign in with Github'
 
-    expect(page).to have_content(@current_user.name)
+    expect(page).to have_link('Sign Out')
+    expect(page).to have_content("#{User.first.name}")
   end
 end
