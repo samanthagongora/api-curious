@@ -9,6 +9,7 @@ RSpec.describe User, type: :model do
         name: "Samantha Gongora",
       },
     }
+
     User.update_or_create(auth)
     new_user = User.first
 

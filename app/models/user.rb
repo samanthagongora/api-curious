@@ -5,7 +5,7 @@ class User < ApplicationRecord
     user.attributes = {
       provider: auth[:provider],
       uid: auth[:uid],
-      name: auth[:info][:name],
+      name: auth[:info][:name]
     }
     user.save!
     user
