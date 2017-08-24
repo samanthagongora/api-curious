@@ -4,24 +4,8 @@ RSpec.feature 'user logs in' do
   scenario 'using github oauth' do
     visit root_path
 
-    expect(page).to have_link('Login')
+    click_link 'Sign in with Github'
 
-    stub_omniauth
-    click_link 'Login'
-
-    expect(page).to have_content('Samantha Gongora')
-    expect(page).to have_link('Logout')
-    expect(page).to have_content
+    expect(page).to have_link('Sign Out')
   end
-end
-
-def stub_omniauth
-  OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
-    "provider"=>"github",
-    "uid"=>123456,
-    "info"=>{"name"=>"Samantha Gongora"},
-    "credentials"=>{"token"=>"abcdefg12345",
-                    "expires"=>false
-                  }
-  })
 end
