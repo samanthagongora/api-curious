@@ -5,9 +5,8 @@ RSpec.describe User, type: :model do
     auth = {
       provider: "github",
       uid: "12345678910",
-      info: {
-        name: "Samantha Gongora",
-      },
+      info: {name: "Samantha Gongora"},
+      credentials: {token: "ENV['user_token']"}
     }
 
     User.update_or_create(auth)
