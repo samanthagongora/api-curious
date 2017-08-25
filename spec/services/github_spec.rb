@@ -3,10 +3,7 @@ require "rails_helper"
 RSpec.feature 'GithubService' do
   describe "data" do
     it "finds all user data" do
-      visit root_path
-      mock_auth_hash
-
-      click_link 'Sign in with Github'
+      user = User.update_or_create(mock_auth_hash)
       # VCR.use_cassette("service/find_co_members") do
         data = GithubService.get_user_data(user)
 
